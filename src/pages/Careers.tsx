@@ -70,41 +70,72 @@ const Careers = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-20">
-        {/* Hero Section */}
-        <section className="py-16 bg-hero-gradient">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Join the ChargingMitra Team
+        {/* Modern Hero Section */}
+        <section className="relative py-20 overflow-hidden">
+          {/* Gradient Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600">
+            <div className="absolute inset-0 bg-black/20"></div>
+          </div>
+
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-20 w-32 h-32 bg-white/10 rounded-full blur-3xl animate-float"></div>
+            <div className="absolute bottom-20 right-20 w-48 h-48 bg-white/10 rounded-full blur-3xl animate-float-delayed"></div>
+          </div>
+
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <div className="inline-flex items-center bg-white/10 border border-white/20 rounded-full px-6 py-3 mb-8 backdrop-blur-sm">
+              <Users className="w-5 h-5 text-yellow-300 mr-2" />
+              <span className="text-white font-medium">Join Our Team</span>
+            </div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+              <span className="block mb-2">Shape India's</span>
+              <span className="block bg-gradient-to-r from-yellow-300 via-white to-purple-300 bg-clip-text text-transparent">
+                EV Future
+              </span>
             </h1>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
               Help us build India's most trusted community-powered EV charging network
             </p>
           </div>
         </section>
 
         {/* Why Join Us */}
-        <section className="py-20">
+        <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-purple-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Why Work at ChargingMitra?
+              <div className="inline-flex items-center bg-purple-100 border border-purple-200 rounded-full px-6 py-3 mb-6">
+                <Heart className="w-5 h-5 text-purple-600 mr-2" />
+                <span className="text-purple-700 font-medium">Why Join Us</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+                Why Work at
+                <span className="block bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                  ChargingMitra?
+                </span>
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Be part of the team solving India's EV charging infrastructure challenges
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
               {benefits.map((benefit, index) => (
-                <Card key={index} className="group hover:shadow-trust transition-all duration-300 hover:scale-[1.02] text-center">
-                  <CardContent className="p-8">
-                    <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
-                      <benefit.icon className="w-8 h-8 text-primary" />
+                <Card key={index} className="group bg-white/80 backdrop-blur-sm border-0 hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 text-center relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <CardContent className="p-8 relative z-10">
+                    <div className={`w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 ${
+                      index === 0 ? 'bg-gradient-to-r from-red-400 to-pink-400' :
+                      index === 1 ? 'bg-gradient-to-r from-blue-400 to-indigo-400' :
+                      index === 2 ? 'bg-gradient-to-r from-purple-400 to-pink-400' :
+                      'bg-gradient-to-r from-green-400 to-emerald-400'
+                    }`}>
+                      <benefit.icon className="w-10 h-10 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-foreground mb-4">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {benefit.title}
                     </h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-gray-600 leading-relaxed">
                       {benefit.description}
                     </p>
                   </CardContent>
@@ -202,17 +233,35 @@ const Careers = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-20 bg-energy-gradient">
-          <div className="container mx-auto px-4 text-center">
-            <div className="max-w-2xl mx-auto text-white">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Ready to Make an Impact?
+        {/* Modern CTA Section */}
+        <section className="py-20 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-600 via-red-600 to-pink-600">
+            <div className="absolute inset-0 bg-black/20"></div>
+          </div>
+
+          {/* Background Pattern */}
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute top-20 left-20 w-40 h-40 bg-white rounded-full blur-3xl animate-float"></div>
+            <div className="absolute bottom-20 right-20 w-60 h-60 bg-white rounded-full blur-3xl animate-float-delayed"></div>
+          </div>
+
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <div className="max-w-4xl mx-auto text-white">
+              <div className="inline-flex items-center bg-white/10 border border-white/20 rounded-full px-6 py-3 mb-8 backdrop-blur-sm">
+                <Zap className="w-5 h-5 text-yellow-300 mr-2" />
+                <span className="font-medium">Join the Revolution</span>
+              </div>
+              <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
+                <span className="block mb-2">Ready to Make</span>
+                <span className="block bg-gradient-to-r from-yellow-300 via-white to-orange-300 bg-clip-text text-transparent">
+                  an Impact?
+                </span>
               </h2>
-              <p className="text-xl text-white/90 mb-8">
+              <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
                 Join us in building the future of EV charging in India
               </p>
-              <Button variant="secondary" size="xl" className="bg-white text-accent hover:bg-white/90">
+              <Button size="xl" className="bg-white text-gray-900 hover:bg-gray-100 font-semibold px-10 py-5 rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                <Users className="w-6 h-6 mr-3" />
                 View All Openings
               </Button>
             </div>

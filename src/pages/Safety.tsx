@@ -82,41 +82,74 @@ const Safety = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-20">
-        {/* Hero Section */}
-        <section className="py-16 bg-hero-gradient">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Your Safety is Our Priority
+        {/* Modern Hero Section */}
+        <section className="relative py-20 overflow-hidden">
+          {/* Gradient Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-red-600 via-orange-600 to-amber-600">
+            <div className="absolute inset-0 bg-black/20"></div>
+          </div>
+
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-20 w-32 h-32 bg-white/10 rounded-full blur-3xl animate-float"></div>
+            <div className="absolute bottom-20 right-20 w-48 h-48 bg-white/10 rounded-full blur-3xl animate-float-delayed"></div>
+          </div>
+
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <div className="inline-flex items-center bg-white/10 border border-white/20 rounded-full px-6 py-3 mb-8 backdrop-blur-sm">
+              <Shield className="w-5 h-5 text-yellow-300 mr-2" />
+              <span className="text-white font-medium">Safety First</span>
+            </div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+              <span className="block mb-2">Your Safety is</span>
+              <span className="block bg-gradient-to-r from-yellow-300 via-white to-orange-300 bg-clip-text text-transparent">
+                Our Priority
+              </span>
             </h1>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-white/90 max-w-5xl mx-auto leading-relaxed">
               Comprehensive safety measures and protocols to ensure secure charging experiences for everyone in our community
             </p>
           </div>
         </section>
 
         {/* Safety Features */}
-        <section className="py-20">
+        <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-red-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Multi-Layer Safety System
+              <div className="inline-flex items-center bg-red-100 border border-red-200 rounded-full px-6 py-3 mb-6">
+                <Shield className="w-5 h-5 text-red-600 mr-2" />
+                <span className="text-red-700 font-medium">Safety Features</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+                Multi-Layer
+                <span className="block bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
+                  Safety System
+                </span>
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Advanced technology and human oversight working together
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
               {safetyFeatures.map((feature, index) => (
-                <Card key={index} className="group hover:shadow-trust transition-all duration-300 hover:scale-[1.02]">
-                  <CardContent className="p-8">
-                    <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                      <feature.icon className="w-8 h-8 text-primary" />
+                <Card key={index} className="group bg-white/80 backdrop-blur-sm border-0 hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <CardContent className="p-8 relative z-10">
+                    <div className={`w-20 h-20 mb-6 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 ${
+                      index === 0 ? 'bg-gradient-to-r from-blue-400 to-indigo-400' :
+                      index === 1 ? 'bg-gradient-to-r from-green-400 to-emerald-400' :
+                      index === 2 ? 'bg-gradient-to-r from-red-400 to-pink-400' :
+                      index === 3 ? 'bg-gradient-to-r from-yellow-400 to-orange-400' :
+                      index === 4 ? 'bg-gradient-to-r from-purple-400 to-indigo-400' :
+                      'bg-gradient-to-r from-teal-400 to-cyan-400'
+                    }`}>
+                      <feature.icon className="w-10 h-10 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-foreground mb-4">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {feature.title}
                     </h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-gray-600 leading-relaxed">
                       {feature.description}
                     </p>
                   </CardContent>
@@ -183,28 +216,36 @@ const Safety = () => {
         </section>
 
         {/* Emergency Response */}
-        <section className="py-20">
+        <section className="py-20 bg-gradient-to-br from-orange-50 via-red-50 to-pink-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Emergency Response System
+              <div className="inline-flex items-center bg-orange-100 border border-orange-200 rounded-full px-6 py-3 mb-6">
+                <AlertTriangle className="w-5 h-5 text-orange-600 mr-2" />
+                <span className="text-orange-700 font-medium">Emergency Response</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+                Emergency Response
+                <span className="block bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                  System
+                </span>
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Immediate help when you need it most
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
               {emergencySteps.map((item, index) => (
-                <Card key={index} className="group hover:shadow-elegant transition-all duration-300">
-                  <CardContent className="p-8 text-center">
-                    <div className="w-16 h-16 bg-destructive/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-destructive/20 transition-colors">
-                      <span className="text-2xl font-bold text-destructive">{item.step}</span>
+                <Card key={index} className="group bg-white/80 backdrop-blur-sm border-0 hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <CardContent className="p-8 text-center relative z-10">
+                    <div className="w-20 h-20 bg-gradient-to-r from-red-400 to-orange-400 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300">
+                      <span className="text-3xl font-bold text-white">{item.step}</span>
                     </div>
-                    <h3 className="text-xl font-bold text-foreground mb-4">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {item.title}
                     </h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-gray-600 leading-relaxed">
                       {item.description}
                     </p>
                   </CardContent>
@@ -212,10 +253,10 @@ const Safety = () => {
               ))}
             </div>
 
-            <div className="mt-12 text-center">
-              <div className="inline-flex items-center space-x-2 bg-destructive/10 px-6 py-3 rounded-full">
-                <AlertTriangle className="w-5 h-5 text-destructive" />
-                <span className="text-destructive font-semibold">Emergency Helpline: 1800-123-4567</span>
+            <div className="mt-16 text-center">
+              <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-red-500 to-orange-500 text-white px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                <AlertTriangle className="w-6 h-6" />
+                <span className="font-bold text-lg">Emergency Helpline: 1800-123-4567</span>
               </div>
             </div>
           </div>

@@ -94,24 +94,47 @@ const HelpCenter = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-20">
-        {/* Hero Section */}
-        <section className="py-16 bg-hero-gradient">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              How Can We Help You?
+        {/* Modern Hero Section */}
+        <section className="relative py-20 overflow-hidden">
+          {/* Gradient Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600">
+            <div className="absolute inset-0 bg-black/20"></div>
+          </div>
+
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-20 w-32 h-32 bg-white/10 rounded-full blur-3xl animate-float"></div>
+            <div className="absolute bottom-20 right-20 w-48 h-48 bg-white/10 rounded-full blur-3xl animate-float-delayed"></div>
+          </div>
+
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <div className="inline-flex items-center bg-white/10 border border-white/20 rounded-full px-6 py-3 mb-8 backdrop-blur-sm">
+              <Headphones className="w-5 h-5 text-yellow-300 mr-2" />
+              <span className="text-white font-medium">Help Center</span>
+            </div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+              <span className="block mb-2">How Can We</span>
+              <span className="block bg-gradient-to-r from-yellow-300 via-white to-emerald-300 bg-clip-text text-transparent">
+                Help You?
+              </span>
             </h1>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed">
               Find answers to your questions or get in touch with our support team
             </p>
-            
-            {/* Search Bar */}
-            <div className="max-w-md mx-auto">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
-                <Input 
+
+            {/* Enhanced Search Bar */}
+            <div className="max-w-2xl mx-auto">
+              <div className="relative group">
+                <Search className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-400 w-6 h-6" />
+                <Input
                   placeholder="Search for help topics..."
-                  className="pl-12 pr-4 py-4 text-lg rounded-lg bg-white"
+                  className="pl-16 pr-6 py-6 text-lg rounded-2xl bg-white/10 backdrop-blur-md border-2 border-white/20 text-white placeholder:text-white/60 focus:border-yellow-300 focus:bg-white/20 transition-all duration-300"
                 />
+                <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-xl px-4 py-2 text-white/80 text-sm font-medium">
+                    ⌘K
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -152,35 +175,49 @@ const HelpCenter = () => {
         </section>
 
         {/* Help Categories */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-20 bg-gradient-to-br from-teal-50 via-emerald-50 to-cyan-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Browse by Category
+              <div className="inline-flex items-center bg-emerald-100 border border-emerald-200 rounded-full px-6 py-3 mb-6">
+                <Book className="w-5 h-5 text-emerald-600 mr-2" />
+                <span className="text-emerald-700 font-medium">Help Categories</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+                Browse by
+                <span className="block bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                  Category
+                </span>
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Find detailed guides and tutorials
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
               {categories.map((category, index) => (
-                <Card key={index} className="group hover:shadow-trust transition-all duration-300 hover:scale-[1.02] cursor-pointer">
-                  <CardContent className="p-8">
-                    <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                      <category.icon className="w-8 h-8 text-primary" />
+                <Card key={index} className="group bg-white/80 backdrop-blur-sm border-0 hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 cursor-pointer relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <CardContent className="p-8 relative z-10">
+                    <div className={`w-20 h-20 mb-6 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 ${
+                      index === 0 ? 'bg-gradient-to-r from-blue-400 to-indigo-400' :
+                      index === 1 ? 'bg-gradient-to-r from-emerald-400 to-teal-400' :
+                      index === 2 ? 'bg-gradient-to-r from-yellow-400 to-orange-400' :
+                      index === 3 ? 'bg-gradient-to-r from-green-400 to-emerald-400' :
+                      'bg-gradient-to-r from-purple-400 to-pink-400'
+                    }`}>
+                      <category.icon className="w-10 h-10 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-foreground mb-4">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {category.title}
                     </h3>
-                    <p className="text-muted-foreground mb-6">
+                    <p className="text-gray-600 mb-6 leading-relaxed">
                       {category.description}
                     </p>
-                    <ul className="space-y-2">
+                    <ul className="space-y-3">
                       {category.articles.map((article, articleIndex) => (
-                        <li key={articleIndex} className="flex items-center text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer">
-                          <ChevronRight className="w-4 h-4 mr-2" />
-                          {article}
+                        <li key={articleIndex} className="flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-colors cursor-pointer group/item">
+                          <ChevronRight className="w-4 h-4 mr-3 text-gray-400 group-hover/item:text-emerald-600 transition-colors" />
+                          <span className="group-hover/item:font-medium transition-all">{article}</span>
                         </li>
                       ))}
                     </ul>

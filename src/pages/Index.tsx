@@ -1,23 +1,25 @@
 import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
-import ProblemSection from "@/components/ProblemSection";
-import SolutionSection from "@/components/SolutionSection";
-import HowItWorksSection from "@/components/HowItWorksSection";
-import FeaturesSection from "@/components/FeaturesSection";
-import DownloadSection from "@/components/DownloadSection";
 import Footer from "@/components/Footer";
+import ModernHeroSection from "@/components/ModernHeroSection";
+import TrustSection from "@/components/TrustSection";
+import VisualStorySection from "@/components/VisualStorySection";
+import InteractiveMapSection from "@/components/InteractiveMapSection";
+import TestimonialSection from "@/components/TestimonialSection";
+import CallToActionSection from "@/components/CallToActionSection";
+import StatsSection from "@/components/StatsSection";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        <HeroSection />
-        <ProblemSection />
-        <SolutionSection />
-        <HowItWorksSection />
-        <FeaturesSection />
-        <DownloadSection />
+        <ModernHeroSection />
+        <TrustSection />
+        <StatsSection />
+        <VisualStorySection />
+        <InteractiveMapSection />
+        <TestimonialSection />
+        <CallToActionSection />
       </main>
       <Footer />
     </div>

@@ -15,6 +15,7 @@ import TermsOfService from "./pages/TermsOfService";
 import Careers from "./pages/Careers";
 import HelpCenter from "./pages/HelpCenter";
 import Safety from "./pages/Safety";
+import HostRegistration from "./pages/HostRegistration";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/careers" element={<Careers />} />
           <Route path="/help" element={<HelpCenter />} />
           <Route path="/safety" element={<Safety />} />
+          <Route path="/host-registration" element={<HostRegistration />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

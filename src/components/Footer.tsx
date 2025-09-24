@@ -1,7 +1,15 @@
+import { Link, useNavigate } from "react-router-dom";
 import { Zap, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-accent text-accent-foreground">
       <div className="container mx-auto px-4 py-16">
@@ -40,8 +48,22 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold text-white mb-6">Company</h4>
             <ul className="space-y-3">
-              <li><a href="#about" className="text-white/80 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#careers" className="text-white/80 hover:text-white transition-colors">Careers</a></li>
+              <li>
+                <button
+                  onClick={() => handleNavigation('/about')}
+                  className="text-white/80 hover:text-white transition-colors text-left"
+                >
+                  About Us
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNavigation('/careers')}
+                  className="text-white/80 hover:text-white transition-colors text-left"
+                >
+                  Careers
+                </button>
+              </li>
               <li><a href="#press" className="text-white/80 hover:text-white transition-colors">Press</a></li>
               <li><a href="#blog" className="text-white/80 hover:text-white transition-colors">Blog</a></li>
             </ul>
@@ -51,9 +73,30 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold text-white mb-6">Support</h4>
             <ul className="space-y-3">
-              <li><a href="#help" className="text-white/80 hover:text-white transition-colors">Help Center</a></li>
-              <li><a href="#safety" className="text-white/80 hover:text-white transition-colors">Safety</a></li>
-              <li><a href="#contact" className="text-white/80 hover:text-white transition-colors">Contact Us</a></li>
+              <li>
+                <button
+                  onClick={() => handleNavigation('/help')}
+                  className="text-white/80 hover:text-white transition-colors text-left"
+                >
+                  Help Center
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNavigation('/safety')}
+                  className="text-white/80 hover:text-white transition-colors text-left"
+                >
+                  Safety
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNavigation('/contact')}
+                  className="text-white/80 hover:text-white transition-colors text-left"
+                >
+                  Contact Us
+                </button>
+              </li>
               <li><a href="#community" className="text-white/80 hover:text-white transition-colors">Community</a></li>
             </ul>
           </div>
@@ -82,8 +125,18 @@ const Footer = () => {
         <div className="border-t border-white/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex flex-wrap gap-6 mb-4 md:mb-0">
-              <a href="#privacy" className="text-white/80 hover:text-white transition-colors text-sm">Privacy Policy</a>
-              <a href="#terms" className="text-white/80 hover:text-white transition-colors text-sm">Terms of Service</a>
+              <button
+                onClick={() => handleNavigation('/privacy')}
+                className="text-white/80 hover:text-white transition-colors text-sm"
+              >
+                Privacy Policy
+              </button>
+              <button
+                onClick={() => handleNavigation('/terms')}
+                className="text-white/80 hover:text-white transition-colors text-sm"
+              >
+                Terms of Service
+              </button>
               <a href="#cookies" className="text-white/80 hover:text-white transition-colors text-sm">Cookie Policy</a>
             </div>
             <p className="text-white/60 text-sm">
